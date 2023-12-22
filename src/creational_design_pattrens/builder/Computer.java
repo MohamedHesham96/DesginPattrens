@@ -10,6 +10,13 @@ public class Computer {
     private boolean isGraphicsCardEnabled;
     private boolean isBluetoothEnabled;
 
+    private Computer(ComputerBuilder computerBuilder) {
+        this.hdd = computerBuilder.hdd;
+        this.ram = computerBuilder.ram;
+        this.isGraphicsCardEnabled = computerBuilder.isGraphicsCardEnabled;
+        this.isBluetoothEnabled = computerBuilder.isBluetoothEnabled;
+    }
+
     public String getHdd() {
         return hdd;
     }
@@ -24,6 +31,16 @@ public class Computer {
 
     public boolean isBluetoothEnabled() {
         return isBluetoothEnabled;
+    }
+
+    @Override
+    public String toString() {
+        return "Computer{" +
+                "hdd='" + hdd + '\'' +
+                ", ram='" + ram + '\'' +
+                ", isGraphicsCardEnabled=" + isGraphicsCardEnabled +
+                ", isBluetoothEnabled=" + isBluetoothEnabled +
+                '}';
     }
 
     public static class ComputerBuilder {
@@ -54,22 +71,5 @@ public class Computer {
         public Computer build() {
             return new Computer(this);
         }
-    }
-
-    private Computer(ComputerBuilder computerBuilder) {
-        this.hdd = computerBuilder.hdd;
-        this.ram = computerBuilder.ram;
-        this.isGraphicsCardEnabled = computerBuilder.isGraphicsCardEnabled;
-        this.isBluetoothEnabled = computerBuilder.isBluetoothEnabled;
-    }
-
-    @Override
-    public String toString() {
-        return "Computer{" +
-                "hdd='" + hdd + '\'' +
-                ", ram='" + ram + '\'' +
-                ", isGraphicsCardEnabled=" + isGraphicsCardEnabled +
-                ", isBluetoothEnabled=" + isBluetoothEnabled +
-                '}';
     }
 }
